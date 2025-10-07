@@ -276,6 +276,8 @@ except RedisError:
 
 ## Django Integration
 
+For detailed Django integration guide with complete examples, see [Django Integration Guide](docs/DJANGO_INTEGRATION.md).
+
 ```python
 # settings.py
 import redis
@@ -294,12 +296,14 @@ def get_article_list():
 
 # Invalidate on model changes
 from django.db.models.signals import post_save
-from custom_cache.utils import invalidate
+from custom_cache import invalidate
 
 @receiver(post_save, sender=Article)
 def invalidate_articles(sender, **kwargs):
     invalidate(tags=["articles"], backend=settings.CACHE_BACKEND)
 ```
+
+📖 **[View Full Django Integration Guide →](docs/DJANGO_INTEGRATION.md)**
 
 ## Performance Tips
 
