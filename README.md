@@ -163,7 +163,7 @@ cache_backend.invalidate_tags(["group1"])
 
 ## Backends
 
-### InMemoryCache
+### InMemoryCache (Sync/Async)
 
 Fast in-process cache with thread safety:
 
