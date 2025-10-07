@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "relaycache"
+version = "0.1.0"
+description = "Universal caching library with sync/async support, tagging, singleflight and distributed locks"
+readme = "README.md"
+authors = [
+    {name = "Potrebchuk Oleg", email = "potrebchuk0@gmail.com"}
+]
+keywords = ["cache", "redis", "async", "singleflight", "tagging", "distributed", "python"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Database",
+    "Topic :: System :: Distributed Computing",
+    "Framework :: AsyncIO",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "redis>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "redis>=4.0.0",
+]
+aioredis = [
+    "aioredis>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/AIMERPRO/relaycache"
+Documentation = "https://github.com/AIMERPRO/relaycache#readme"
+Repository = "https://github.com/AIMERPRO/relaycache"
+"Bug Tracker" = "https://github.com/AIMERPRO/relaycache/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["custom_cache*"]
+
+[tool.setuptools.package-data]
+"custom_cache" = ["py.typed"]

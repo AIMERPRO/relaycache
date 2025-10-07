@@ -1,0 +1,7 @@
+include README.md
+include pyproject.toml
+recursive-include custom_cache *.py
+recursive-include custom_cache py.typed
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+exclude LICENSE.txt
