@@ -327,6 +327,11 @@ MIT License. See LICENSE file for details.
 
 ## Changelog
 
+### 0.1.1
+- Added `default_ttl` parameter to `AioredisCache` for API consistency
+- All backends now have unified constructor interface
+- Added `__setitem__` method to `AioredisCache` for `cache[key] = value` syntax
+
 ### 0.1.0
 - Initial release
 - Sync/async cache support

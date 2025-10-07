@@ -49,10 +49,15 @@ class AioredisCache(AsyncCustomCache, RedisTagMixin, RedisPatternMixin):
             self,
             client: Redis,
             *,
+            default_ttl: float,
             value_prefix: str = "rc:",
             meta_prefix: str = "rcmeta",
             pickle_protocol: int = -1,
     ) -> None:
+        if default_ttl <= 0:
+            raise ValueError("default_ttl must be > 0 seconds")
+
+        self.default_ttl = float(default_ttl)
         self.r = client
         super().__init__(
             value_prefix=value_prefix,
@@ -221,3 +226,18 @@ class AioredisCache(AsyncCustomCache, RedisTagMixin, RedisPatternMixin):
             await p.execute()
         except RedisError:
             pass
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        """Set value as cache[key] = value using default_ttl."""
+        import asyncio
+        # For sync interface, we need to run the async method
+        try:
+            loop = asyncio.get_event_loop()
+            if loop.is_running():
+                # If we're already in an async context, we can't use this sync method
+                raise RuntimeError("Use aset() method in async context instead of cache[key] = value")
+            else:
+                loop.run_until_complete(self.aset(key, value, ttl=self.default_ttl))
+        except RuntimeError:
+            # No event loop, create one
+            asyncio.run(self.aset(key, value, ttl=self.default_ttl))
