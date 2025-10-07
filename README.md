@@ -1,16 +1,47 @@
-# RelayCache
+<div align="center">
+  
+# 🚀 RelayCache
 
-Universal caching library for Python with sync/async support, tagging, singleflight pattern and distributed locks.
+<p align="center">
+  <em>⚡ Universal caching library for Python with sync/async support, tagging, singleflight pattern and distributed locks</em>
+</p>
 
-## Features
+<p align="center">
+  <a href="https://pypi.org/project/relaycache/">
+    <img src="https://img.shields.io/pypi/v/relaycache.svg" alt="PyPI version">
+  </a>
+  <a href="https://pypi.org/project/relaycache/">
+    <img src="https://img.shields.io/pypi/pyversions/relaycache.svg" alt="Python versions">
+  </a>
+  <a href="https://github.com/AIMERPRO/relaycache">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
+  </a>
+  <a href="https://github.com/AIMERPRO/relaycache">
+    <img src="https://img.shields.io/github/stars/AIMERPRO/relaycache?style=social" alt="GitHub stars">
+  </a>
+</p>
 
-- **Universal API**: Works with both sync and async code
-- **Multiple backends**: In-memory, Redis, async Redis
-- **Cache tagging**: Group and invalidate related cache entries
-- **Singleflight**: Prevent thundering herd with automatic deduplication
-- **Distributed locks**: Cross-process coordination via Redis
-- **TTL support**: Automatic expiration of cache entries
-- **Type hints**: Full typing support
+<p align="center">
+  <a href="#features">✨ Features</a> •
+  <a href="#installation">📦 Installation</a> •
+  <a href="#quick-start">🚀 Quick Start</a> •
+  <a href="#documentation">📖 Docs</a> •
+  <a href="#examples">💡 Examples</a>
+</p>
+
+</div>
+
+---
+
+## ✨ Features
+
+- 🔄 **Universal API**: Works with both sync and async code
+- 🗄️ **Multiple backends**: In-memory, Redis, async Redis
+- 🏷️ **Cache tagging**: Group and invalidate related cache entries
+- ⚡ **Singleflight**: Prevent thundering herd with automatic deduplication
+- 🔒 **Distributed locks**: Cross-process coordination via Redis
+- ⏰ **TTL support**: Automatic expiration of cache entries
+- 🎯 **Type hints**: Full typing support
 
 ## Installation
 
